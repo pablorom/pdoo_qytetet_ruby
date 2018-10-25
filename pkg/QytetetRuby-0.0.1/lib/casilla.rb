@@ -1,7 +1,3 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
 #encoding: utf-8
 module ModeloQytetet
   require_relative 'tipo_casilla'
@@ -54,8 +50,8 @@ module ModeloQytetet
     end
     
     def to_s
-      puts "Casilla: #{@numeroCasilla}  Tipo: #{@tipo}"  
-      #puts "Casilla \nTitulo : #{@titulo} \n Número de casilla: #{@numeroCasilla}  \n Precio Compra : #{@preciocompra} \n Tipo : #{@tipo}."
+      puts "\nCasilla: #{@numeroCasilla} \nTipo: #{@tipo}"+  
+      "\nTitulo : #{@titulo} \nNumero de casilla: #{@numeroCasilla}  \nPrecio Compra : #{@preciocompra} \nTipo : #{@tipo}."
     end
       
       

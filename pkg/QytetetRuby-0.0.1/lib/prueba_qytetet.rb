@@ -43,9 +43,25 @@ module ModeloQytetet
           mazo_tipo << i
         end
       end 
-      return mazo_tipo
+      
+      mazo_tipo
     end
     
+    def self.getNombreJugadores
+      lista_nombres = Array.new
+      num_jugadores = 0
+      nombre = ""
+      puts "Introduzca el numero de jugadores"
+      num_jugadores = gets.chomp.to_i
+      
+      for i in 1..num_jugadores
+        puts "Introduzca el nombre de Jugador #{i}"
+        nom = gets.chomp.to_s
+        lista_nombres << nom
+      end
+      
+      lista_nombres
+    end
    
     
     def self.main()
@@ -59,12 +75,18 @@ module ModeloQytetet
       puts("\nSORPRESAS DE TIPO ESPECIFICADO -------------------------------------")
       puts sorpresas_de_tipo(:SalirCarcel).inspect
       puts("--------------------------------------------------------------------")
- 
+      puts("\nCASILLAS -----------")
+      puts @@juego.tablero.inspect
+      nombres = getNombreJugadores
+      @@juego.inicializarJuego(nombres)
+      puts("\JUGADORES -----------")
+      puts @@juego.jugadores.inspect
+      puts("\INFO. JUGADORES -----------")
+      for j in @@juego.jugadores do
+        puts j
+      end
     end
   end
-
-  PruebaQytetet.main
 end
 
-
-
+ModeloQytetet::PruebaQytetet.main

@@ -9,10 +9,11 @@ module ModeloQytetet
   class Qytetet
     include Singleton
     
-    attr_accessor :NUM_SORPRESAS, :PRECIO_LIBERTAD, :SALDO_SALIDA, :mazo, :tablero, :MAX_JUGADORES, :NUM_CASILLAS, :cartaActual
+    attr_accessor :NUM_SORPRESAS, :PRECIO_LIBERTAD, :SALDO_SALIDA, :jugadores, :mazo, :tablero, :MAX_JUGADORES, :NUM_CASILLAS, :cartaActual
 
     def initialize
       @mazo = Array.new
+      @jugadores = Array.new
       @MAX_JUGADORES = 4
       @NUM_CASILLAS = 20
       
@@ -54,9 +55,7 @@ module ModeloQytetet
     end
     
     def inicializarJugadores(nombres)
-      nombres.each do |n|
-        jugadores[n]<<nombres[n]
-      end
+      @jugadores = nombres.map { |n| Jugador.new(n) }
     end
     
     def salidaJugadores
@@ -129,7 +128,7 @@ module ModeloQytetet
     def inicializarJuego(nombres)
       inicializarJugadores(nombres)
       inicializarTablero
-      inicializarCastasSorpresa
+      inicializarCartasSorpresa
     end
   
      

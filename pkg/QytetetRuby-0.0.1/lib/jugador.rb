@@ -1,17 +1,18 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+# encoding: utf-8
 
 module ModeloQytetet
   class Jugador
     
-    attr_accessor :cartaLibertad, :casillaActual, :Encarcelado
+    attr_accessor :cartaLibertad, :casillaActual, :encarcelado
     attr_reader :nombre, :propiedades, :saldo
     
     def initialize(nombre)
       @encarcelado = false
       @nombre = nombre
       @saldo = 7500
+      @cartaLibertad = nil
+      @casillaActual = nil
+      @propiedades = []
     end
     
     def cancelarHipoteca
@@ -30,8 +31,10 @@ module ModeloQytetet
       raise NotImplementedError
     end
     
-    def devolverCartaLibertad
-      raise NotImplementedError
+    def devolver_carta_libertad
+      s = @carta_libertad
+      @carta_libertad = nil
+      s
     end
     
     def edificarCasa(titulo)
@@ -92,7 +95,7 @@ module ModeloQytetet
     end
     
     private
-    def tengSaldo(cantidad)
+    def tengoSaldo(cantidad)
       raise NotImplementedError
     end
     
@@ -100,9 +103,16 @@ module ModeloQytetet
       raise NotImplementedError
     end
     
+    # Para una representacion extensa, usar .inspect
     def to_s
-     puts "Jugador:  #{@nombre}.\n"
-      #puts "\n Jugador \n Nombre : #{@nombre} \n ¿Está en la cárcel? : #{@encarcelado} \n Saldo : #{@saldo}."
+      '===JUGADOR===' \
+        "\nNombre: #{@nombre}" \
+        "\nSaldo: #{@saldo}" \
+        "\nCarta Libertad?: #{!@cartaLibertad.nil?}" \
+        "\nEncarcelado?: #{@encarcelado}" \
+        "\nCasilla Actual: #{@casillaActual}" \
+        "\nPropiedades:" \
+        "\n#{@propiedades.map(&:nombre)}"
     end
     
   end
