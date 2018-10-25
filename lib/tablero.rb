@@ -1,7 +1,3 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
 module ModeloQytetet
   require_relative 'casilla'
   require_relative 'tipo_casilla'
@@ -26,7 +22,7 @@ module ModeloQytetet
       
       @tituloP1 = TituloPropiedad.new("Edificio lujoso", 1000, 100, 0.2, 600, 400)
       @tituloP2 = TituloPropiedad.new("Edificio de viviendas familiares", 500, 60, 0.15, 200, 300)
-      @tituloP3 = TituloPropiedad.new("Parking 1", 600, 100, 0.15, 400, 250)
+      @tituloP3 = TituloPropiedad.new("Oficinas Ociosas", 600, 100, 0.15, 400, 250)
       @tituloP4 = TituloPropiedad.new("Chalet", 1000, 100, 0.2, 600, 400)
       @tituloP5 = TituloPropiedad.new("Granje", 600, 100, 0.15, 400, 250)
       @tituloP6 = TituloPropiedad.new("Apartamentos Acomodados", 700, 90, 0.1, 400, 300)
@@ -36,7 +32,7 @@ module ModeloQytetet
       @tituloP10 = TituloPropiedad.new("Centro comercial",1000, 100, 0.2, 600, 400)
       
       #Parking
-      @C15 = Casilla.crear_casilla_calle(15, TipoCasilla::PARKING, @tituloP3)
+      @C15 = Casilla.crear_casilla(15, TipoCasilla::PARKING)
       #Sorpresas 4, 7, 12
       @C4 = Casilla.crear_casilla(4, TipoCasilla::SORPRESA)
       @C7 = Casilla.crear_casilla(7, TipoCasilla::SORPRESA)
@@ -106,8 +102,16 @@ module ModeloQytetet
     end
     
     def to_s
-     puts "\n Tablero.\n"
-     #puts "\n Tablero \n Carcel : #{@carcel} \n Casillas : #{@casillas}"
+      s = "===TABLERO===\n"
+      for i in 0...@casillas.size
+        s << "|#{i}|"
+        s << @casillas[i].tipo.to_s
+        if @casillas[i].tipo == TipoCasilla::CALLE
+          s << ": #{@casillas[i].titulo.nombre}"
+        end
+        s << "\n"
+      end
+      s
     end
     
   end

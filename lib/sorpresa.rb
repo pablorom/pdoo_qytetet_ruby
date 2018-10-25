@@ -16,7 +16,7 @@ module ModeloQytetet
     end
     
     def to_s 
-      "------- Sorpresa -------\n"+
+      "\n------- Sorpresa -------\n"+
       "Texto: #{@texto} \nValor: #{@valor} \nTipo: #{@tipo}"
     end
     

@@ -51,11 +51,11 @@ module ModeloQytetet
       lista_nombres = Array.new
       num_jugadores = 0
       nombre = ""
-      puts "Introduzca el numero de jugadores"
+      puts "\nIntroduzca el numero de jugadores"
       num_jugadores = gets.chomp.to_i
       
       for i in 1..num_jugadores
-        puts "Introduzca el nombre de Jugador #{i}"
+        puts "\nIntroduzca el nombre de Jugador #{i}"
         nom = gets.chomp.to_s
         lista_nombres << nom
       end
@@ -67,21 +67,21 @@ module ModeloQytetet
     def self.main()
       @@juego.inicializarCartasSorpresa
       #Mostramos las sorpresas
-      puts @@juego.mazo.inspect
+      puts @@juego.mazo
       puts("\nSORPRESAS POSITIVAS -------------------------------------")
-      puts sorpresas_positivas.inspect
+      puts sorpresas_positivas
       puts("\nSORPRESAS DE TIPO IR A CASILLA -------------------------------------")
-      puts sorpresas_ir_casilla.inspect
+      puts sorpresas_ir_casilla
       puts("\nSORPRESAS DE TIPO ESPECIFICADO -------------------------------------")
-      puts sorpresas_de_tipo(:SalirCarcel).inspect
+      puts sorpresas_de_tipo(:SalirCarcel)
       puts("--------------------------------------------------------------------")
       puts("\nCASILLAS -----------")
-      puts @@juego.tablero.inspect
+      puts @@juego.tablero.to_s
       nombres = getNombreJugadores
       @@juego.inicializarJuego(nombres)
-      puts("\JUGADORES -----------")
+      puts("\nJUGADORES -----------")
       puts @@juego.jugadores.inspect
-      puts("\INFO. JUGADORES -----------")
+      puts("\nINFO. JUGADORES -----------")
       for j in @@juego.jugadores do
         puts j
       end
