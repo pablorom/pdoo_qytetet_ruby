@@ -1,28 +1,24 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+#encoding: utf-8
 
-class Sorpresa
-      def initialize(texto,tipo,valor)
-        @texto = texto
-        @tipo = tipo
-        @valor = valor
-      end
-      
-      # para leer las atributos de un objeto
-      def texto
-        @texto
-      end
-
-      def tipo
-        @tipo
-      end
-      
-      def valor
-        @valor
-      end
-     
-      def to_s 
-        "Texto: #{@texto} \n Valor: #{@valor} \n Tipo: #{@tipo}"
-      end
+module ModeloQytetet
+  # Clase que define una carta sorpresa del juego.
+  # Recoge una estructura de datos con la descripcion de la carta,
+  # el valor logico, y el tipo de sorpresa que representa.
+  class Sorpresa
+    attr_reader :texto, :valor, :tipo
+    
+    # Crea una nueva sorpresa con una descripcion: +texto+,
+    # valor logico: +valor+, y un tipo definido: +tipo+
+    def initialize(texto,valor,tipo)
+      @texto = texto
+      @tipo = tipo
+      @valor = valor
     end
+    
+    def to_s 
+      "------- Sorpresa -------\n"+
+      "Texto: #{@texto} \nValor: #{@valor} \nTipo: #{@tipo}"
+    end
+    
+  end
+end

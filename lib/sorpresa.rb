@@ -14,10 +14,11 @@ module ModeloQytetet
       @tipo = tipo
       @valor = valor
     end
-
+    
     def to_s 
-      '===Sorpresa===' \
-      "\n\033[32;1m Texto \033[0m : #{@texto} \n Valor: #{@valor} \n Tipo: #{@tipo}"
+      "------- Sorpresa -------\n"+
+      "Texto: #{@texto} \nValor: #{@valor} \nTipo: #{@tipo}"
     end
+    
   end
 end

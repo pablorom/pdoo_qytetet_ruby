@@ -3,7 +3,7 @@
 # and open the template in the editor.
 
 module ModeloQytetet
-  class TituloPropriedad
+  class TituloPropiedad
     
     attr_accessor :nombre, :hipotecado, :precioCompra, :alquilerBase, :factorRevalorizacion, :hipotecaBase, :precioEdificar, :numHoteles, :numCasas, :jugador
     
